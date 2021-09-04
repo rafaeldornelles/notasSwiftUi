@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct NotasAppApp: App {
+    let persistenceController = PersistenceController.banco
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
